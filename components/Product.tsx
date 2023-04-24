@@ -25,7 +25,7 @@ const Product = ({ product }: Props) => {
             Ducky
           </div>
         </div>
-        <h3 className="font-black text-gray-800 md:text-3xl text-xl">
+        <h3 className="font-black text-gray-800 md:text-3xl text-xl transition duration-300 transform hover:scale-105">
           {product.name}
         </h3>
         <p className="md:text-lg text-gray-500 text-base">

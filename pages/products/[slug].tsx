@@ -18,7 +18,7 @@ const Product = () => {
   console.log(keyboard);
   return (
     <div>
-      <h1></h1>
+      <h1>{keyboard.name}</h1>
     </div>
   );
 };

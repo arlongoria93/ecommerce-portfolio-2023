@@ -1,0 +1,73 @@
+export const keyboards = [
+  {
+    id: 1,
+    name: "Ducky One 2 Mini",
+    description: "60% Mechanical Gaming Keyboard with Cherry MX Brown Switches",
+    image: "https://m.media-amazon.com/images/I/71AMbGk-j6L._AC_SL1500_.jpg",
+    price: 119.99,
+  },
+  {
+    id: 2,
+    name: "Anne Pro 2",
+    description: "60% Mechanical Gaming Keyboard with Gateron Red Switches",
+    image: "https://m.media-amazon.com/images/I/71AMbGk-j6L._AC_SL1500_.jpg",
+    price: 89.99,
+  },
+  {
+    id: 3,
+    name: "Ducky One 2 RGB TKL",
+    description: "80% Mechanical Gaming Keyboard with Cherry MX Blue Switches",
+    image: "https://m.media-amazon.com/images/I/71AMbGk-j6L._AC_SL1500_.jpg",
+    price: 149.99,
+  },
+  {
+    id: 4,
+    name: "Drop SHIFT",
+    description: "TKL Mechanical Gaming Keyboard with Cherry MX Brown Switches",
+    image: "https://m.media-amazon.com/images/I/71AMbGk-j6L._AC_SL1500_.jpg",
+    price: 219.99,
+  },
+  {
+    id: 5,
+    name: "Varmilo VA87M",
+    description: "TKL Mechanical Keyboard with Cherry MX Red Switches",
+    image: "https://m.media-amazon.com/images/I/71AMbGk-j6L._AC_SL1500_.jpg",
+    price: 129.99,
+  },
+  {
+    id: 6,
+    name: "Keychron K6",
+    description: "65% Wireless Mechanical Keyboard with Gateron Blue Switches",
+    image: "https://m.media-amazon.com/images/I/71AMbGk-j6L._AC_SL1500_.jpg",
+    price: 74.99,
+  },
+  {
+    id: 7,
+    name: "Vortexgear Pok3r",
+    description: "60% Mechanical Keyboard with Cherry MX Clear Switches",
+    image: "https://m.media-amazon.com/images/I/71AMbGk-j6L._AC_SL1500_.jpg",
+    price: 139.99,
+  },
+  {
+    id: 8,
+    name: "Leopold FC750R",
+    description: "TKL Mechanical Keyboard with Cherry MX Brown Switches",
+    image: "https://m.media-amazon.com/images/I/71AMbGk-j6L._AC_SL1500_.jpg",
+    price: 129.99,
+  },
+  {
+    id: 9,
+    name: "Filco Majestouch 2",
+    description: "TKL Mechanical Keyboard with Cherry MX Blue Switches",
+    image: "https://m.media-amazon.com/images/I/71AMbGk-j6L._AC_SL1500_.jpg",
+    price: 149.99,
+  },
+  {
+    id: 10,
+    name: "Ducky One 2 SF",
+    description:
+      "65% Mechanical Gaming Keyboard with Cherry MX Silent Red Switches",
+    image: "https://m.media-amazon.com/images/I/71AMbGk-j6L._AC_SL1500_.jpg",
+    price: 139.99,
+  },
+];

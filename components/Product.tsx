@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { Button } from "@material-tailwind/react";
 
 type Props = {
   product: {
@@ -31,7 +32,10 @@ const Product = ({ product }: Props) => {
         <p className="md:text-lg text-gray-500 text-base">
           {product.description}
         </p>
-        <p className="text-xl font-black text-gray-800">${product.price}</p>
+        <div className="flex justify-between">
+          <p className="text-xl font-black text-gray-800">${product.price}</p>
+          <Button>Add To Cart</Button>
+        </div>
       </div>
     </div>
   );

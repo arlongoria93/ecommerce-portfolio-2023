@@ -5,9 +5,7 @@ import { ContextType } from "@/context/shop-context";
 import CartItem from "./cartItem";
 import React from "react";
 
-type Props = {};
-
-const index = (props: Props) => {
+const index = () => {
   const { cartItems } = React.useContext(ShopContext) as ContextType;
   return (
     <main>

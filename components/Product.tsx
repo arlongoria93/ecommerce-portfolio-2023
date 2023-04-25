@@ -10,6 +10,7 @@ type Props = {
     description: string;
     image: string;
     price: number;
+    brand: string;
   };
 };
 
@@ -25,7 +26,7 @@ const Product = ({ product }: Props) => {
       <div className="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
         <div className="flex justify-end item-center">
           <div className="bg-gray-200 px-3 py-1 rounded-full text-xs font-medium text-gray-800 hidden md:block">
-            Ducky
+            {product.brand}
           </div>
         </div>
         <h3 className="font-black text-gray-800 md:text-3xl text-xl transition duration-300 transform hover:scale-105">

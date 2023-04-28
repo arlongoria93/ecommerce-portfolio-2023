@@ -1,16 +1,11 @@
 import React, { createContext, useState } from "react";
 import { keyboards as PRODUCTS } from "../data/keyboards";
-interface Product {
-  id: number;
-  name: string;
-  description: string;
-  image: string;
-  price: number;
-}
 export type ContextType = {
   cartItems: { [key: number]: number };
   addProductToCart: (productId: number) => void;
   removeProductFromCart: (productId: number) => void;
+  getTotalItemCountInCart: () => number;
+  getTotalCartAmount: () => string;
 };
 export const ShopContext = createContext<ContextType | null>(null);
 
@@ -30,6 +25,17 @@ type Props = {
 export const ShopContextProvider = ({ children }: Props) => {
   const [cartItems, setCartItems] = useState(getDefaultCart());
 
+  const getTotalCartAmount = () => {
+    let total = 0;
+    for (const item in cartItems) {
+      if (cartItems[item] > 0) {
+        let itemInfo = PRODUCTS.find((product) => product.id === Number(item));
+        if (itemInfo) total += cartItems[item] * itemInfo.price;
+      }
+    }
+    return total.toFixed(2);
+  };
+
   const addProductToCart = (productId: number) => {
     setCartItems((prevState) => ({
       ...prevState,
@@ -44,8 +50,23 @@ export const ShopContextProvider = ({ children }: Props) => {
     }));
   };
 
-  const contextValue = { cartItems, addProductToCart, removeProductFromCart };
-  console.log(cartItems);
+  const getTotalItemCountInCart = () => {
+    let total = 0;
+    for (const item in cartItems) {
+      if (cartItems[item] > 0) {
+        total += cartItems[item];
+      }
+    }
+    return total;
+  };
+
+  const contextValue = {
+    cartItems,
+    addProductToCart,
+    removeProductFromCart,
+    getTotalCartAmount,
+    getTotalItemCountInCart,
+  };
   return (
     <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>
   );

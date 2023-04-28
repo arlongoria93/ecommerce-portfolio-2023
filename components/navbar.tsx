@@ -1,19 +1,17 @@
 import React from "react";
 import Link from "next/link";
-import { FaShoppingCart } from "react-icons/fa";
+import CartIcon from "@/components/CartIcon";
 
-type Props = {};
-
-const navbar = (props: Props) => {
+const navbar = () => {
   return (
-    <nav className="bg-black px-4 py-2 sticky top-0 z-10">
+    <nav className="bg-black  sticky top-0 z-10 p-4">
       <div className="flex items-center justify-between">
         <Link href="/" className="text-white font-bold text-lg">
           Austin Switch Society
         </Link>
         <div className="flex items-center">
-          <Link href="/cart" className="text-gray-300 hover:text-white mx-3">
-            <FaShoppingCart className="text-2xl" />
+          <Link href="/cart" className="text-gray-300 hover:text-white py-2">
+            <CartIcon />
           </Link>
         </div>
       </div>

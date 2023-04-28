@@ -7,6 +7,7 @@ type product = {
   description: string;
   image: string;
   price: number;
+  brand: string;
 };
 type Products = {
   products: product[];

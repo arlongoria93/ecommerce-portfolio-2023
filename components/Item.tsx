@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Button } from "@material-tailwind/react";
 import { ShopContext } from "@/context/shop-context";
 import { ContextType } from "@/context/shop-context";
+import Image from "next/image";
 type Props = {
   data: {
     id: number;
@@ -13,7 +14,7 @@ type Props = {
   };
 };
 
-const CartItem = ({ data }: Props) => {
+const Item = ({ data }: Props) => {
   const { addProductToCart, removeProductFromCart } = useContext(
     ShopContext
   ) as ContextType;
@@ -21,7 +22,7 @@ const CartItem = ({ data }: Props) => {
     <div className="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
       <div className="w-full md:w-1/3 bg-white grid place-items-center">
         <Link href={`/products/${data.id}`}>
-          <img src={data.image} alt="tailwind logo" className="rounded-xl" />
+          <Image src={data.image} alt="tailwind logo" className="rounded-xl" />
         </Link>
       </div>
       <div className="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
@@ -51,4 +52,4 @@ const CartItem = ({ data }: Props) => {
   );
 };
 
-export default CartItem;
+export default Item;

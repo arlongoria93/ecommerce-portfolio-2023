@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/all";
+import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
 import { ShopContext, ContextType } from "@/context/shop-context";
 import React from "react";
 

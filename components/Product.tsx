@@ -18,17 +18,18 @@ type Props = {
 const Product = ({ product }: Props) => {
   const { addProductToCart } = React.useContext(ShopContext) as ContextType;
   return (
-    <div className="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
-      <div className="w-full md:w-1/3 bg-white grid place-items-center">
+    <div className="flex flex-col w-full md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
+      <div className="relative h-full w-48 md:w-96">
         <Link href={`/products/${product.id}`}>
           <Image
             src={product.image}
-            alt="tailwind logo"
-            className="rounded-xl"
+            alt={product.name}
+            fill
+            className="object-contain"
           />
         </Link>
       </div>
-      <div className="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
+      <div className="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3 justify-around">
         <div className="flex justify-end item-center">
           <div className="bg-gray-200 px-3 py-1 rounded-full text-xs font-medium text-gray-800 hidden md:block">
             {product.brand}
@@ -40,7 +41,7 @@ const Product = ({ product }: Props) => {
         <p className="md:text-lg text-gray-500 text-base">
           {product.description}
         </p>
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center">
           <p className="text-xl font-black text-gray-800">${product.price}</p>
           <Button onClick={() => addProductToCart(product.id)}>
             Add To Cart

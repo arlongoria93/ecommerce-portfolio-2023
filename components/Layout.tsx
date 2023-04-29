@@ -7,9 +7,9 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div>
+    <div className="grid grid-cols-1">
       <Nav />
-      <main className="container mx-auto my-7">{children}</main>
+      <main className="flex flex-col items-center h-screen">{children}</main>
     </div>
   );
 };

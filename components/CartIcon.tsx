@@ -1,4 +1,4 @@
-import { FaShoppingCart } from "react-icons/fa";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { ShopContext, ContextType } from "@/context/shop-context";
 import React from "react";
 
@@ -16,7 +16,7 @@ const CartIcon = () => {
           </span>
         </div>
       )}
-      <FaShoppingCart className="w-8 h-8 text-gray-700 cursor-pointer" />
+      <AiOutlineShoppingCart className="w-4 h-4 text-white-700 cursor-pointer" />
     </div>
   );
 };

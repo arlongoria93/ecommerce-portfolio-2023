@@ -1,6 +1,24 @@
 import Link from "next/link";
 
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import { useEffect, useState } from "react";
+
 export default function Home() {
+  const [publishableKey, setPublishableKey] = useState("");
+  useEffect(() => {
+    fetch("/api/stripe", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setPublishableKey(data.publishableKey);
+      });
+  }, []);
+  if (!publishableKey) return <h1>Loading...</h1>;
+  const stripe = loadStripe(publishableKey);
   return (
     <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
       <h1 className="text-6xl font-bold mb-8 ">Austin Switch Society</h1>

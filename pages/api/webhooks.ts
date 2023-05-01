@@ -28,6 +28,14 @@ export default async function webhookHandler(
       console.log(err);
       return res.status(400).send(`Webhook Error: ${err.message}`);
     }
+
+    // Handle the event
+    if (event.type === "checkout.session.completed") {
+      console.log(`Payment was successful`);
+    } else {
+      console.log(`Unhandled event type ${event.type}`);
+    }
+
     console.log("Success:", event);
     res.status(200).json({ received: true });
   }

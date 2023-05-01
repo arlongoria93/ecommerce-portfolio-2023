@@ -17,13 +17,32 @@ const Index = () => {
   const totalAmount = Number(getTotalCartAmount());
   //add count of item to CartItem component
 
+  const getCartItemById = (id: number) => {
+    return keyboards.find((keyboard) => keyboard.id === id);
+  };
+
   const redirectToCheckout = async () => {
     //redirect to checkout page
     //get lineItems from cartItems
+    // Create a Checkout Session
+    const cartItemsWithQuantity = Object.entries(cartItems)
+      .filter((item) => item[1] > 0)
+      .map((item) => ({ id: item[0], quantity: item[1] }));
+    const items = Object.entries(cartItemsWithQuantity).map((item) => {
+      const keyboard = getCartItemById(Number(item[1].id));
+      if (!keyboard) return null;
+      return {
+        price: keyboard.stripePrice,
+        quantity: item[1].quantity,
+      };
+    });
+
+    console.log(items);
+
     const {
       data: { id },
     } = await axios.post("/api/checkout_sessions", {
-      cartItems,
+      items,
     });
     // Redirect to checkout
     const stripe = await getStripe();

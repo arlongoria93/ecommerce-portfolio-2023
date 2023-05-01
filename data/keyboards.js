@@ -5,6 +5,7 @@ export const keyboards = [
     description: "60% Mechanical Gaming Keyboard with Cherry MX Brown Switches",
     image: "https://m.media-amazon.com/images/I/61HqcGPIbkL._AC_SL1500_.jpg",
     price: 119.99,
+    stripePrice: "price_1N33BUI84MXd91rjc3hyISjn",
     brand: "Ducky",
   },
   {
@@ -14,6 +15,7 @@ export const keyboards = [
     image: "https://m.media-amazon.com/images/I/61dJfqST2TL._AC_SL1000_.jpg",
     price: 89.99,
     brand: "Anne Pro",
+    stripePrice: "price_1N33BUI84MXd91rjc3hyISjn",
   },
   {
     id: 3,
@@ -22,6 +24,8 @@ export const keyboards = [
     image: "https://m.media-amazon.com/images/I/71e1JSpFOHL._AC_SL1500_.jpg",
     price: 149.99,
     brand: "Ducky",
+
+    stripePrice: "price_1N33BUI84MXd91rjc3hyISjn",
   },
   {
     id: 4,
@@ -30,6 +34,7 @@ export const keyboards = [
     image: "https://m.media-amazon.com/images/I/71PxYqqJ-iS._AC_SL1500_.jpg",
     price: 219.99,
     brand: "Drop",
+    stripePrice: "price_1N33BUI84MXd91rjc3hyISjn",
   },
   {
     id: 5,
@@ -37,6 +42,7 @@ export const keyboards = [
     description: "TKL Mechanical Keyboard with Cherry MX Red Switches",
     image: "https://m.media-amazon.com/images/I/71Pjaj2F9-L._AC_SL1500_.jpg",
     price: 129.99,
+    stripePrice: "price_1N33BUI84MXd91rjc3hyISjn",
     brand: "Varmilo",
   },
   {
@@ -45,6 +51,7 @@ export const keyboards = [
     description: "65% Wireless Mechanical Keyboard with Gateron Blue Switches",
     image: "https://m.media-amazon.com/images/I/61jFhEP+snS._AC_SL1500_.jpg",
     price: 74.99,
+    stripePrice: "price_1N33BUI84MXd91rjc3hyISjn",
     brand: "Keychron",
   },
   {
@@ -53,6 +60,7 @@ export const keyboards = [
     description: "60% Mechanical Keyboard with Cherry MX Clear Switches",
     image: "https://m.media-amazon.com/images/I/61YWybGkf-L._AC_SL1500_.jpg",
     price: 139.99,
+    stripePrice: "price_1N33BUI84MXd91rjc3hyISjn",
     brand: "Vortexgear",
   },
   {
@@ -61,6 +69,7 @@ export const keyboards = [
     description: "TKL Mechanical Keyboard with Cherry MX Brown Switches",
     image: "https://m.media-amazon.com/images/I/71XCJrkpp-L._AC_SL1500_.jpg",
     price: 129.99,
+    stripePrice: "price_1N33BUI84MXd91rjc3hyISjn",
     brand: "Leopold",
   },
   {
@@ -69,6 +78,7 @@ export const keyboards = [
     description: "TKL Mechanical Keyboard with Cherry MX Blue Switches",
     image: "https://m.media-amazon.com/images/I/61SONsEvgIL._AC_SL1200_.jpg",
     price: 149.99,
+    stripePrice: "price_1N33BUI84MXd91rjc3hyISjn",
     brand: "Filco",
   },
   {
@@ -78,6 +88,7 @@ export const keyboards = [
       "65% Mechanical Gaming Keyboard with Cherry MX Silent Red Switches",
     image: "https://m.media-amazon.com/images/I/71AMbGk-j6L._AC_SL1500_.jpg",
     price: 139.99,
+    stripePrice: "price_1N33BUI84MXd91rjc3hyISjn",
     brand: "Ducky",
   },
 ];

@@ -18,7 +18,6 @@ export default function Home() {
       });
   }, []);
   if (!publishableKey) return <h1>Loading...</h1>;
-  const stripe = loadStripe(publishableKey);
   return (
     <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
       <h1 className="text-6xl font-bold mb-8 ">Austin Switch Society</h1>

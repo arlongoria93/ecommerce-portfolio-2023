@@ -1,33 +1,31 @@
 import React from "react";
+import { GetStaticProps, GetStaticPaths } from "next";
 import Image from "next/image";
 import { keyboards } from "@/data/keyboards";
 //get params from url
-import { useRouter } from "next/router";
 
-const filterKeyboardBySlug = (id: string) => {
-  const keyboard = keyboards.filter((keyboard) => {
-    return keyboard.id.toString() === id;
-  });
-
-  return keyboard[0];
-};
-
-const Product = () => {
-  const router = useRouter();
-  const { slug } = router.query;
-  const { name, price, description, image } = filterKeyboardBySlug(
-    slug as string
-  )
-    ? keyboards[0]
-    : { name: "", price: 0, description: "", image: "" };
+const Product = ({
+  keyboard,
+}: {
+  keyboard: {
+    name: string;
+    price: number;
+    description: string;
+    image: string;
+  };
+}) => {
+  const { name, price, description, image } = keyboard;
+  if (!name) return <div>loading...</div>;
   return (
     <div className="flex aign-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="flex flex-col md:flex-row -mx-2">
-        <div className="md:w-1/2 px-2">
+        <div className="md:w-1/2 px-2 relative">
           <Image
             src={image}
             alt="Product Image"
-            className="w-full rounded-lg"
+            className="w-full rounded-lg object-contain"
+            fill
+            sizes="100%"
           />
         </div>
         <div className="md:w-1/2 px-2 mt-4 md:mt-0">
@@ -49,3 +47,30 @@ const Product = () => {
 };
 
 export default Product;
+
+//getStaticProps
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  if (!params) return { props: { keyboard: {} } };
+  const filterKeyboardBySlug = (id: string) => {
+    const keyboard = keyboards.filter((keyboard) => {
+      return keyboard.id.toString() === id;
+    });
+
+    return keyboard[0];
+  };
+  const keyboard = filterKeyboardBySlug(params.slug as string);
+  return {
+    props: {
+      keyboard,
+    },
+  };
+};
+
+//getStaticPaths
+export const getStaticPaths: GetStaticPaths = () => {
+  const paths = keyboards.map((keyboard) => ({
+    params: { slug: keyboard.id.toString() },
+  }));
+
+  return { paths, fallback: false };
+};

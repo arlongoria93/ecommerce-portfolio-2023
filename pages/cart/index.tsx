@@ -7,7 +7,6 @@ import getStripe from "@/utils/get-stripe";
 import { CartItem } from "@/components/CartItem";
 import React from "react";
 import Link from "next/link";
-import { getEffectiveConstraintOfTypeParameter } from "typescript";
 
 const Index = () => {
   const [redirecting, setRedirecting] = useState(false);

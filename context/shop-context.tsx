@@ -6,6 +6,7 @@ export type ContextType = {
   removeProductFromCart: (productId: number) => void;
   getTotalItemCountInCart: () => number;
   getTotalCartAmount: () => string;
+  clearCart: () => void;
 };
 export const ShopContext = createContext<ContextType | null>(null);
 
@@ -60,12 +61,17 @@ export const ShopContextProvider = ({ children }: Props) => {
     return total;
   };
 
+  const clearCart = () => {
+    setCartItems(getDefaultCart());
+  };
+
   const contextValue = {
     cartItems,
     addProductToCart,
     removeProductFromCart,
     getTotalCartAmount,
     getTotalItemCountInCart,
+    clearCart,
   };
   return (
     <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>

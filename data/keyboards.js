@@ -15,7 +15,7 @@ export const keyboards = [
     image: "https://m.media-amazon.com/images/I/61dJfqST2TL._AC_SL1000_.jpg",
     price: 89.99,
     brand: "Anne Pro",
-    stripePrice: "price_1N33BUI84MXd91rjc3hyISjn",
+    stripePrice: "price_1N45QkI84MXd91rjxMk752VD",
   },
   {
     id: 3,

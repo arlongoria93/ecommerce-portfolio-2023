@@ -16,6 +16,7 @@ export default async function webhookHandler(
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
     apiVersion: "2022-11-15",
   });
+
   if (req.method === "POST") {
     const buf = await buffer(req);
     const sig = req.headers["stripe-signature"]!;
@@ -28,7 +29,7 @@ export default async function webhookHandler(
       console.log(err);
       return res.status(400).send(`Webhook Error: ${err.message}`);
     }
-    console.log(event.type);
+    console.log(event.id);
     // Handle the event
     if (event.type === "checkout.session.completed") {
       console.log(`Payment was successful`);

@@ -45,7 +45,7 @@ const Index = () => {
     });
     // Redirect to checkout
     const stripe = await getStripe();
-    await stripe.redirectToCheckout({ sessionId: id });
+    if (id) await stripe.redirectToCheckout({ sessionId: id });
   };
 
   return (

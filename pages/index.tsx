@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -13,7 +11,6 @@ export default function Home() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setPublishableKey(data.publishableKey);
       });
   }, []);

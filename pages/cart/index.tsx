@@ -36,8 +36,6 @@ const Index = () => {
       };
     });
 
-    console.log(items);
-
     const {
       data: { id },
     } = await axios.post("/api/checkout_sessions", {

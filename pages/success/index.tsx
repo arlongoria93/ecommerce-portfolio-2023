@@ -43,8 +43,8 @@ const Success = () => {
       <p>
         Your order confirmation has been sent to the email address provided
         <span className="font-bold "> {customerDetails.email}</span>. If you
-        have any questions or concerns about your order, please don't hesitate
-        to reach out to us at{" "}
+        have any questions or concerns about your order, please don&apos;t
+        hesitate to reach out to us at{" "}
         <span className="font-bold "> austinswitchsociety@hey.com</span>.
       </p>
       <p>

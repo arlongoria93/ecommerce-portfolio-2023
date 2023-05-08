@@ -4,7 +4,7 @@ import useSWR from "swr";
 import { useRouter } from "next/router";
 import { ShopContext, ContextType } from "@/context/shop-context";
 
-const success = () => {
+const Success = () => {
   const { clearCart } = React.useContext(ShopContext) as ContextType;
   const {
     query: { session_id },
@@ -31,4 +31,4 @@ const success = () => {
   );
 };
 
-export default success;
+export default Success;

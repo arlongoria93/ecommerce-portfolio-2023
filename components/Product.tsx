@@ -21,6 +21,7 @@ const Product = ({ product }: Props) => {
             src={product.image}
             alt={product.name}
             fill
+            priority
             sizes="100%"
             className="object-contain"
           />

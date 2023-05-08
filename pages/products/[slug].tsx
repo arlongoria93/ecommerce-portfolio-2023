@@ -1,5 +1,6 @@
 import React from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
+import { ShopContext, ContextType } from "@/context/shop-context";
 import Image from "next/image";
 import { keyboards } from "@/data/keyboards";
 //get params from url
@@ -12,9 +13,11 @@ const Product = ({
     price: number;
     description: string;
     image: string;
+    id: number;
   };
 }) => {
-  const { name, price, description, image } = keyboard;
+  const { addProductToCart } = React.useContext(ShopContext) as ContextType;
+  const { name, price, description, image, id } = keyboard;
   if (!name) return <div>loading...</div>;
   return (
     <div className="flex aign-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -37,7 +40,10 @@ const Product = ({
               ${price}
             </span>
           </div>
-          <button className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+          <button
+            onClick={() => addProductToCart(id)}
+            className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          >
             Add to Cart
           </button>
         </div>

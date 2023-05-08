@@ -1,10 +1,15 @@
 import Link from "next/link";
+import useSWR from "swr";
 import { keyboards } from "@/data/keyboards";
 import ProductsList from "@/components/ProductsList";
 import { useEffect, useState } from "react";
 
+const fetcher = (url: any) => fetch(url).then((res) => res.json());
+
 export default function Home() {
   const [publishableKey, setPublishableKey] = useState("");
+  const { data, error } = useSWR("/api/keyboard", fetcher);
+
   useEffect(() => {
     fetch("/api/stripe", {
       method: "GET",
@@ -15,10 +20,13 @@ export default function Home() {
         setPublishableKey(data.publishableKey);
       });
   }, []);
-  if (!publishableKey) return <h1>Loading...</h1>;
+  if (error) return <div>Failed to load</div>;
+
+  if (!publishableKey || !data) return <h1>Loading...</h1>;
+  //Handle the loading state
   return (
     <main>
-      <ProductsList products={keyboards} />
+      <ProductsList products={data.products} />
     </main>
   );
 }

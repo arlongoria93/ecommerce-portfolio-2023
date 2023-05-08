@@ -3,6 +3,7 @@ import axios from "axios";
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import { ShopContext, ContextType } from "@/context/shop-context";
+import Link from "next/link";
 
 type CustomerDetails = {
   name: string;
@@ -29,7 +30,6 @@ const Success = () => {
     }
   }, [data]);
   if (error) return <div>payment failed</div>;
-  console.log(customerDetails);
   return (
     <div className="flex flex-col w-3/4 h-3/4 justify-center gap-4 ">
       <h1>
@@ -55,6 +55,11 @@ const Success = () => {
       <p>
         Best regards, <span className="font-bold">Austin Switch Society</span>
       </p>
+      <Link href="/">
+        <button className="border rounded py-2 px-6 bg-rose-500 hover:bg-rose-600 border-rose-500 hover:border-rose-600 focus:ring-4 focus:ring-opacity-50 focus:ring-rose-500  transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-rose-500 max-w-max mt-4 text-black">
+          Continue Shopping
+        </button>
+      </Link>
     </div>
   );
 };

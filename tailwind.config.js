@@ -8,6 +8,9 @@ module.exports = withMT({
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      roboto: ["Roboto", "sans-serif"],
+    },
     extend: {},
     plugins: [],
   },

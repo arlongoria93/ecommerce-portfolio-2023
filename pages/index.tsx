@@ -1,35 +1,18 @@
-import Link from "next/link";
+import useSWR from "swr";
+import ProductsList from "@/components/ProductsList";
 
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import { useEffect, useState } from "react";
+const fetcher = (url: any) => fetch(url).then((res) => res.json());
 
 export default function Home() {
-  const [publishableKey, setPublishableKey] = useState("");
-  useEffect(() => {
-    fetch("/api/stripe", {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setPublishableKey(data.publishableKey);
-      });
-  }, []);
-  if (!publishableKey) return <h1>Loading...</h1>;
+  const { data, error } = useSWR("/api/keyboard", fetcher);
+
+  if (error) return <div>Failed to load</div>;
+
+  if (!data) return <h1>Loading...</h1>;
+  //Handle the loading state
   return (
-    <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-      <h1 className="text-6xl font-bold mb-8 ">Austin Switch Society</h1>
-      <p className="text-lg mb-8 ">
-        Your go-to destination for high-quality mechanical keyboards and key
-        switches!
-      </p>
-      <Link href="/keyboards">
-        <p className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
-          Shop Now
-        </p>
-      </Link>
+    <main>
+      <ProductsList products={data.products} />
     </main>
   );
 }

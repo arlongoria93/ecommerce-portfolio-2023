@@ -15,7 +15,7 @@ type Products = {
 
 const ProductsList = ({ products }: Products) => {
   return (
-    <div className="grid grid-cols-1  xl:grid-cols-2 gap-4 overflow-hidden">
+    <div className="grid grid-cols-1  xl:grid-cols-2 gap-8 overflow-hidden">
       {products.map((product) => (
         <Product key={product.id} product={product} />
       ))}

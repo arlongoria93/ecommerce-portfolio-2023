@@ -1,15 +1,28 @@
-import React from "react";
-import { GetStaticProps, GetStaticPaths } from "next";
+import React, { useState, useEffect } from "react";
 import { ShopContext, ContextType } from "@/context/shop-context";
 import Image from "next/image";
 import { Keyboard } from "@/types/Keyboard";
+import { useRouter } from "next/router";
 //get params from url
-interface Props {
-  keyboard: Keyboard;
-}
-const Product = ({ keyboard }: Props) => {
+
+const Product = () => {
+  const router = useRouter();
+  const { id } = router.query;
+  const [keyboard, setKeyboard] = useState({} as Keyboard);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await fetch(`/api/keyboard/${id}`);
+      const data = await response.json();
+      setKeyboard(data);
+    };
+    fetchProducts();
+  }, []);
+
   const { addProductToCart } = React.useContext(ShopContext) as ContextType;
-  const { name, price, description, image, id } = keyboard;
+
+  const { name, price, description, image } = keyboard;
+
   return (
     <div className="flex aign-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="flex flex-col md:flex-row -mx-2">
@@ -32,7 +45,7 @@ const Product = ({ keyboard }: Props) => {
             </span>
           </div>
           <button
-            onClick={() => addProductToCart(id)}
+            onClick={() => addProductToCart(keyboard.id)}
             className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
           >
             Add to Cart
@@ -44,31 +57,3 @@ const Product = ({ keyboard }: Props) => {
 };
 
 export default Product;
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/keyboard`);
-  const data = await res.json();
-  const keyboards = data?.products;
-
-  const paths = keyboards.map((keyboard: { id: { toString: () => any } }) => ({
-    params: { id: keyboard.id.toString() },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/keyboard/${params?.id}`
-  );
-  const keyboard = await res.json();
-
-  return {
-    props: {
-      keyboard,
-    },
-  };
-};

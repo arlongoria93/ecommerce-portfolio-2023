@@ -1,30 +1,51 @@
-import React, { createContext, useState } from "react";
-import { keyboards as PRODUCTS } from "../data/keyboards";
+import React, { createContext, useState, useEffect } from "react";
+import { Keyboard } from "@/types/Keyboard";
+
 export type ContextType = {
   cartItems: { [key: number]: number };
+  getDefaultCart: (keyboards: Keyboard[]) => { [key: number]: number };
   addProductToCart: (productId: number) => void;
   removeProductFromCart: (productId: number) => void;
   getTotalItemCountInCart: () => number;
   getTotalCartAmount: () => string;
   clearCart: () => void;
+  setCartItems: React.Dispatch<
+    React.SetStateAction<{
+      [key: number]: number;
+    }>
+  >;
 };
+
 export const ShopContext = createContext<ContextType | null>(null);
-
-const getDefaultCart = () => {
-  //give cart type of object with key of number and value of number
-
-  let cart: { [key: number]: number } = {};
-  for (let i = 1; i <= PRODUCTS.length; i++) {
-    cart[i] = 0;
-  }
-  return cart;
-};
-//give children prop a type of React.ReactNode
 type Props = {
   children: React.ReactNode;
 };
 export const ShopContextProvider = ({ children }: Props) => {
-  const [cartItems, setCartItems] = useState(getDefaultCart());
+  const [PRODUCTS, setPRODUCTS] = useState<Keyboard[]>([]);
+  const [cartItems, setCartItems] = useState<{ [key: number]: number }>({});
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_API_URL! + "/keyboard"
+      );
+      const data = await response.json();
+      const keyboards = data.products;
+      const defaultCart = getDefaultCart(keyboards);
+      setPRODUCTS(keyboards);
+      setCartItems(defaultCart);
+    };
+
+    fetchProducts();
+  }, []);
+
+  const getDefaultCart = (keyboards: Keyboard[]) => {
+    const defaultCart: { [key: number]: number } = {};
+    keyboards.forEach((keyboard) => {
+      defaultCart[keyboard.id] = 0;
+    });
+    return defaultCart;
+  };
 
   const getTotalCartAmount = () => {
     let total = 0;
@@ -62,7 +83,8 @@ export const ShopContextProvider = ({ children }: Props) => {
   };
 
   const clearCart = () => {
-    setCartItems(getDefaultCart());
+    const defaultCart = getDefaultCart(PRODUCTS);
+    setCartItems(defaultCart);
   };
 
   const contextValue = {
@@ -72,7 +94,15 @@ export const ShopContextProvider = ({ children }: Props) => {
     getTotalCartAmount,
     getTotalItemCountInCart,
     clearCart,
+    getDefaultCart,
+    setCartItems,
   };
+
+  if (PRODUCTS.length === 0) {
+    // Render a loading spinner or placeholder content while the products are being fetched
+    return <div>Loading...</div>;
+  }
+
   return (
     <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>
   );

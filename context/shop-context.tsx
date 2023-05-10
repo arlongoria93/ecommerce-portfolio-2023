@@ -4,7 +4,7 @@ import { Keyboard } from "@/types/Keyboard";
 export type ContextType = {
   cartItems: { [key: number]: number };
   getDefaultCart: (keyboards: Keyboard[]) => { [key: number]: number };
-  addProductToCart: (productId: number) => void;
+  addProductToCart: (productId: number, quantity?: number) => void;
   removeProductFromCart: (productId: number) => void;
   getTotalItemCountInCart: () => number;
   getTotalCartAmount: () => string;
@@ -56,10 +56,10 @@ export const ShopContextProvider = ({ children }: Props) => {
     return total.toFixed(2);
   };
 
-  const addProductToCart = (productId: number) => {
+  const addProductToCart = (productId: number, quantity = 1) => {
     setCartItems((prevState) => ({
       ...prevState,
-      [productId]: prevState[productId] + 1,
+      [productId]: (prevState[productId] ?? 0) + quantity,
     }));
   };
 

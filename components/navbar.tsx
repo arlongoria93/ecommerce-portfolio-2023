@@ -11,7 +11,7 @@ const roboto = Roboto({
 const navbar = () => {
   return (
     <nav
-      className={`bg-white font-black font-display p-4 ${roboto.className} mx-auto w-full xl:w-3/4`}
+      className={`bg-white font-black font-display p-4 ${roboto.className} mx-auto w-full xl:w-3/4 z-10`}
     >
       <div className="flex items-center justify-between px-4">
         <div className="flex items-center justify-around space-x-4">

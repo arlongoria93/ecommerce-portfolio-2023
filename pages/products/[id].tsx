@@ -1,24 +1,28 @@
-import React from "react";
-import { GetStaticProps, GetStaticPaths } from "next";
+import React, { useState, useEffect } from "react";
 import { ShopContext, ContextType } from "@/context/shop-context";
 import Image from "next/image";
-import { keyboards } from "@/data/keyboards";
+import { Keyboard } from "@/types/Keyboard";
+import { useRouter } from "next/router";
 //get params from url
 
-const Product = ({
-  keyboard,
-}: {
-  keyboard: {
-    name: string;
-    price: number;
-    description: string;
-    image: string;
-    id: number;
-  };
-}) => {
+const Product = () => {
+  const router = useRouter();
+  const { id } = router.query;
+  const [keyboard, setKeyboard] = useState({} as Keyboard);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await fetch(`/api/keyboard/${id}`);
+      const data = await response.json();
+      setKeyboard(data);
+    };
+    fetchProducts();
+  }, []);
+
   const { addProductToCart } = React.useContext(ShopContext) as ContextType;
-  const { name, price, description, image, id } = keyboard;
-  if (!name) return <div>loading...</div>;
+
+  const { name, price, description, image } = keyboard;
+
   return (
     <div className="flex aign-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="flex flex-col md:flex-row -mx-2">
@@ -41,7 +45,7 @@ const Product = ({
             </span>
           </div>
           <button
-            onClick={() => addProductToCart(id)}
+            onClick={() => addProductToCart(keyboard.id)}
             className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
           >
             Add to Cart
@@ -53,30 +57,3 @@ const Product = ({
 };
 
 export default Product;
-
-//getStaticProps
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  if (!params) return { props: { keyboard: {} } };
-  const filterKeyboardBySlug = (id: string) => {
-    const keyboard = keyboards.filter((keyboard) => {
-      return keyboard.id.toString() === id;
-    });
-
-    return keyboard[0];
-  };
-  const keyboard = filterKeyboardBySlug(params.slug as string);
-  return {
-    props: {
-      keyboard,
-    },
-  };
-};
-
-//getStaticPaths
-export const getStaticPaths: GetStaticPaths = () => {
-  const paths = keyboards.map((keyboard) => ({
-    params: { slug: keyboard.id.toString() },
-  }));
-
-  return { paths, fallback: false };
-};

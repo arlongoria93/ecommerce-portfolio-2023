@@ -26,9 +26,7 @@ export const ShopContextProvider = ({ children }: Props) => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch(
-        process.env.NEXT_PUBLIC_API_URL! + "/keyboard"
-      );
+      const response = await fetch(`/api/keyboard`);
       const data = await response.json();
       const keyboards = data.products;
       const defaultCart = getDefaultCart(keyboards);

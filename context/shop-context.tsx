@@ -4,7 +4,7 @@ import { Keyboard } from "@/types/Keyboard";
 export type ContextType = {
   cartItems: { [key: number]: number };
   getDefaultCart: (keyboards: Keyboard[]) => { [key: number]: number };
-  addProductToCart: (productId: number, quantity: number) => void;
+  addProductToCart: (productId: number, quantity?: number) => void;
   removeProductFromCart: (productId: number) => void;
   getTotalItemCountInCart: () => number;
   getTotalCartAmount: () => string;

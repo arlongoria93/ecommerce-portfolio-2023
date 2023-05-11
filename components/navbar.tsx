@@ -12,7 +12,7 @@ const roboto = Roboto({
   subsets: ['latin'],
   display: 'swap'
 });
-const navbar = () => {
+const Navbar = () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -72,4 +72,4 @@ const navbar = () => {
   );
 };
 
-export default navbar;
+export default Navbar;

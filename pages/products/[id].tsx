@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { ShopContext, ContextType } from "@/context/shop-context";
-import Image from "next/image";
-import { Keyboard } from "@/types/Keyboard";
-import { useRouter } from "next/router";
+import React, { useState, useEffect } from 'react';
+import { ShopContext, ContextType } from '@/context/shop-context';
+import Image from 'next/image';
+import { Keyboard } from '@/types/Keyboard';
+import { useRouter } from 'next/router';
 //get params from url
 
 const Product = () => {
@@ -12,12 +12,12 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchKeyboard = async () => {
       const response = await fetch(`/api/keyboard/${id}`);
       const data = await response.json();
       setKeyboard(data);
     };
-    fetchProducts();
+    fetchKeyboard();
   }, [id]);
 
   const { addProductToCart } = React.useContext(ShopContext) as ContextType;

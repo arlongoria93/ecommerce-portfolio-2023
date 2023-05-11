@@ -1,7 +1,7 @@
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { ShopContext, ContextType } from "@/context/shop-context";
-import React from "react";
-
+import { ShopContext, ContextType } from '@/context/shop-context';
+import React from 'react';
+import { IconContext } from 'react-icons';
+import { BsBag } from 'react-icons/bs';
 const CartIcon = () => {
   const { getTotalItemCountInCart } = React.useContext(
     ShopContext
@@ -10,13 +10,15 @@ const CartIcon = () => {
   return (
     <div className="relative">
       {itemCount > 0 && (
-        <div className="absolute bottom-4 left-5">
-          <span className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
+        <div className="absolute top-3 md:top-[7px] left-4 ">
+          <span className="flex h-1 w-1 items-center justify-center rounded-full bg-red-500 p-2 md:p-[9px] text-xs text-white">
             {itemCount}
           </span>
         </div>
       )}
-      <AiOutlineShoppingCart className="w-4 h-4 text-white-700 cursor-pointer" />
+      <IconContext.Provider value={{ className: 'text-2xl' }}>
+        <BsBag />
+      </IconContext.Provider>
     </div>
   );
 };

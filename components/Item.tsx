@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
-import Link from "next/link";
-import { Button } from "@material-tailwind/react";
-import { ShopContext } from "@/context/shop-context";
-import { ContextType } from "@/context/shop-context";
-import Image from "next/image";
+import React, { useContext } from 'react';
+import Link from 'next/link';
+import { ShopContext } from '@/context/shop-context';
+import { ContextType } from '@/context/shop-context';
+import Image from 'next/image';
 type Props = {
   data: {
     id: number;
@@ -37,19 +36,19 @@ const Item = ({ data }: Props) => {
           </div>
         </div>
         <h3 className="font-black text-gray-800 md:text-3xl text-xl transition duration-300 transform hover:scale-105">
-          {" "}
+          {' '}
           {data.name}
         </h3>
         <p className="md:text-lg text-gray-500 text-base">{data.description}</p>
         <div className="flex justify-between">
           <p className="text-xl font-black text-gray-800">${data.price}</p>
           <div className="flex space-x-2">
-            <Button onClick={() => addProductToCart(data.id)}>
+            <button onClick={() => addProductToCart(data.id)}>
               Add To Cart
-            </Button>
-            <Button onClick={() => removeProductFromCart(data.id)}>
+            </button>
+            <button onClick={() => removeProductFromCart(data.id)}>
               Remove From Cart
-            </Button>
+            </button>
           </div>
         </div>
       </div>

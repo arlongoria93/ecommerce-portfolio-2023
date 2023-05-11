@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { ShopContext, ContextType } from "@/context/shop-context";
-import Image from "next/image";
-import { Keyboard } from "@/types/Keyboard";
-import { useRouter } from "next/router";
+import React, { useState, useEffect } from 'react';
+import { ShopContext, ContextType } from '@/context/shop-context';
+import Image from 'next/image';
+import { Keyboard } from '@/types/Keyboard';
+import { useRouter } from 'next/router';
 //get params from url
 
 const Product = () => {
@@ -12,12 +12,12 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchKeyboard = async () => {
       const response = await fetch(`/api/keyboard/${id}`);
       const data = await response.json();
       setKeyboard(data);
     };
-    fetchProducts();
+    fetchKeyboard();
   }, [id]);
 
   const { addProductToCart } = React.useContext(ShopContext) as ContextType;
@@ -41,7 +41,7 @@ const Product = () => {
     <div className="flex flex-col  justify-start gap-4 h-screen z-0 px-4">
       <h1 className="text-3xl font-bold">{name}</h1>
       <p className="text-lg text-gray-800">{description}</p>
-      <Image src={image} alt={name} width={500} height={500} />
+      {image ? <Image src={image} alt={name} width={500} height={500} /> : null}
       <p className="text-2xl font-bold">${price}</p>
 
       <p className="text-lg text-green-700 font-semibold">In Stock</p>

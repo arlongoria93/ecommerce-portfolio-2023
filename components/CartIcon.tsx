@@ -10,8 +10,8 @@ const CartIcon = () => {
   return (
     <div className="relative">
       {itemCount > 0 && (
-        <div className="absolute bottom-4 left-5">
-          <span className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
+        <div className="absolute top-3 md:top-[7px] left-4 ">
+          <span className="flex h-1 w-1 items-center justify-center rounded-full bg-red-500 p-2 md:p-[9px] text-xs text-white">
             {itemCount}
           </span>
         </div>

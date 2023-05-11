@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import CartIcon from '@/components/CartIcon';
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -12,6 +13,7 @@ const roboto = Roboto({
   display: 'swap'
 });
 const navbar = () => {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
   return (
@@ -54,12 +56,15 @@ const navbar = () => {
       {isOpen && (
         <Fade direction="down" cascade triggerOnce>
           <div className=" overflow-auto bg-white  flex flex-col h-fit p-4 border-b border-b-black border-opacity-40 ">
-            <Link
-              href="/keyboards"
+            <button
               className="text-black font-bold text-lg bg-[#d4d4d4] rounded p-4"
+              onClick={() => {
+                toggleMenu();
+                router.push('/keyboards');
+              }}
             >
               Keyboards
-            </Link>
+            </button>
           </div>
         </Fade>
       )}

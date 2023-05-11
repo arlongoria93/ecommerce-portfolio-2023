@@ -1,12 +1,11 @@
-import { useState } from "react";
-import axios from "axios";
-import { keyboards } from "@/data/keyboards";
-import { Typography } from "@material-tailwind/react";
-import { ShopContext, ContextType } from "@/context/shop-context";
-import getStripe from "@/utils/get-stripe";
-import { CartItem } from "@/components/CartItem";
-import React from "react";
-import Link from "next/link";
+import { useState } from 'react';
+import axios from 'axios';
+import { keyboards } from '@/data/keyboards';
+import { ShopContext, ContextType } from '@/context/shop-context';
+import getStripe from '@/utils/get-stripe';
+import { CartItem } from '@/components/CartItem';
+import React from 'react';
+import Link from 'next/link';
 
 const Index = () => {
   const [redirecting, setRedirecting] = useState(false);
@@ -32,14 +31,14 @@ const Index = () => {
       if (!keyboard) return null;
       return {
         price: keyboard.stripePrice,
-        quantity: item[1].quantity,
+        quantity: item[1].quantity
       };
     });
 
     const {
-      data: { id },
-    } = await axios.post("/api/checkout_sessions", {
-      items,
+      data: { id }
+    } = await axios.post('/api/checkout_sessions', {
+      items
     });
     // Redirect to checkout
     const stripe = await getStripe();
@@ -47,7 +46,7 @@ const Index = () => {
   };
 
   return (
-    <main className="flex flex-col items-center gap-8">
+    <main className="flex flex-col items-center gap-8 justify-center w-full">
       <div className="grid grid-cols-1 gap-4">
         {keyboards.map((keyboard) => {
           if (cartItems[keyboard.id] !== 0) {
@@ -62,7 +61,7 @@ const Index = () => {
       <div className="flex justify-center  gap-4">
         <Link href="/">
           <button className="border rounded py-2 px-6 bg-rose-500 hover:bg-rose-600 border-rose-500 hover:border-rose-600 focus:ring-4 focus:ring-opacity-50 focus:ring-rose-500  transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-rose-500 max-w-max mt-4 text-black">
-            Continue Shopping{" "}
+            Continue Shopping{' '}
           </button>
         </Link>
         <button
@@ -70,11 +69,11 @@ const Index = () => {
           disabled={redirecting}
           className="border rounded py-2 px-6 bg-rose-500 hover:bg-rose-600 border-rose-500 hover:border-rose-600 focus:ring-4 focus:ring-opacity-50 focus:ring-rose-500  transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-rose-500 max-w-max mt-4 text-black"
         >
-          {redirecting ? "Redirecting..." : "Go to Checkout"}
+          {redirecting ? 'Redirecting...' : 'Go to Checkout'}
         </button>
       </div>
       <p className="font-bold">
-        Subtotal: ${totalAmount > 0 ? totalAmount : "0"}
+        Subtotal: ${totalAmount > 0 ? totalAmount : '0'}
       </p>
     </main>
   );

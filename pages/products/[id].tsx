@@ -41,7 +41,7 @@ const Product = () => {
     <div className="flex flex-col  justify-start gap-4 h-screen z-0 px-4">
       <h1 className="text-3xl font-bold">{name}</h1>
       <p className="text-lg text-gray-800">{description}</p>
-      <Image src={image} alt={name} width={500} height={500} />
+      {image ? <Image src={image} alt={name} width={500} height={500} /> : null}
       <p className="text-2xl font-bold">${price}</p>
 
       <p className="text-lg text-green-700 font-semibold">In Stock</p>

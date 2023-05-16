@@ -16,13 +16,11 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <Nav />
       <div className={`grid grid-cols-1 ${roboto.className}`}>
-        <main className="z-10 flex flex-col items-center h-screen">
+        <main className="z-10 flex flex-col items-center h-full">
           {children}
         </main>
       </div>
-      <Footer />
     </>
   );
 };

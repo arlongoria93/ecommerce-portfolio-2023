@@ -46,7 +46,7 @@ const Index = () => {
   };
 
   return (
-    <main className="flex flex-col items-center gap-8 justify-center w-full">
+    <main className="flex flex-col items-center justify-center w-full h-screen gap-8">
       <div className="grid grid-cols-1 gap-4">
         {keyboards.map((keyboard) => {
           if (cartItems[keyboard.id] !== 0) {
@@ -58,16 +58,16 @@ const Index = () => {
           }
         })}
       </div>
-      <div className="flex justify-center  gap-4">
+      <div className="flex justify-center gap-4">
         <Link href="/">
-          <button className="border rounded py-2 px-6 bg-rose-500 hover:bg-rose-600 border-rose-500 hover:border-rose-600 focus:ring-4 focus:ring-opacity-50 focus:ring-rose-500  transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-rose-500 max-w-max mt-4 text-black">
+          <button className="px-6 py-2 mt-4 text-black transition-colors border rounded bg-rose-500 hover:bg-rose-600 border-rose-500 hover:border-rose-600 focus:ring-4 focus:ring-opacity-50 focus:ring-rose-500 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-rose-500 max-w-max">
             Continue Shopping{' '}
           </button>
         </Link>
         <button
           onClick={redirectToCheckout}
           disabled={redirecting}
-          className="border rounded py-2 px-6 bg-rose-500 hover:bg-rose-600 border-rose-500 hover:border-rose-600 focus:ring-4 focus:ring-opacity-50 focus:ring-rose-500  transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-rose-500 max-w-max mt-4 text-black"
+          className="px-6 py-2 mt-4 text-black transition-colors border rounded bg-rose-500 hover:bg-rose-600 border-rose-500 hover:border-rose-600 focus:ring-4 focus:ring-opacity-50 focus:ring-rose-500 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-rose-500 max-w-max"
         >
           {redirecting ? 'Redirecting...' : 'Go to Checkout'}
         </button>

@@ -18,7 +18,9 @@ const Layout = ({ children }: LayoutProps) => {
     <>
       <Nav />
       <div className={`grid grid-cols-1 ${roboto.className}`}>
-        <main className="flex flex-col items-center h-screen">{children}</main>
+        <main className="z-10 flex flex-col items-center h-screen">
+          {children}
+        </main>
       </div>
       <Footer />
     </>

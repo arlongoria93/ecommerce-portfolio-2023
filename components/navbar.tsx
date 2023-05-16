@@ -1,13 +1,14 @@
+import { NavItem } from './NavItem';
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import CartIcon from '@/components/CartIcon';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { BsXLg } from 'react-icons/bs';
-import { Roboto } from 'next/font/google';
+import { Roboto, Poppins } from 'next/font/google';
 import { Fade } from 'react-awesome-reveal';
 
-const roboto = Roboto({
+const poppins = Poppins({
   weight: ['300', '400', '700', '900'],
   subsets: ['latin'],
   display: 'swap'
@@ -19,12 +20,12 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`bg-white shadow-lg font-black font-display p-4 ${roboto.className}  z-50 h-[59px] md:h-[69px] flex justify-center items-center   w-full sticky top-0`}
+        className={`bg-white shadow-lg font-black font-display p-4 ${poppins.className}  z-50 h-[59px] md:h-[69px] flex justify-center items-center   w-full sticky top-0`}
       >
         <div className="flex flex-row items-center justify-between w-full align-center md:w-3/4">
           <Link
             href="/"
-            className="text-xl italic font-black text-black md:text-2xl md:font-black "
+            className="text-xl font-normal text-black md:text-2xl "
           >
             AustinSwitchSociety
           </Link>
@@ -55,29 +56,11 @@ const Navbar = () => {
       </nav>
       {isOpen && (
         <Fade direction="down" cascade triggerOnce duration={200}>
-          <div className="flex flex-col gap-4 pt-8 pb-8 overflow-auto bg-white border-b h-fit border-b-black border-opacity-40">
-            <div className="bg-[#d4d4d4] bg-opacity-50">
-              <button
-                className="p-4 text-lg text-black text-start"
-                onClick={() => {
-                  toggleMenu();
-                  router.push('/keyboards');
-                }}
-              >
-                Keyboards
-              </button>
-            </div>
-            <div className="bg-[#d4d4d4] bg-opacity-50">
-              <button
-                className="p-4 text-lg text-black text-start"
-                onClick={() => {
-                  toggleMenu();
-                  router.push('/keyboards');
-                }}
-              >
-                Keyboards
-              </button>
-            </div>
+          <div
+            className={`flex flex-col gap-4 pt-8 pb-8 overflow-auto font-normal bg-white border-b h-fit border-b-black border-opacity-40 ${poppins.className}`}
+          >
+            <NavItem toggleMenu={toggleMenu} route="keyboards" />
+            <NavItem toggleMenu={toggleMenu} route="cart" />
           </div>
         </Fade>
       )}

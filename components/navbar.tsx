@@ -55,7 +55,7 @@ const Navbar = () => {
         </div>
       </nav>
       {isOpen && (
-        <Fade direction="down" cascade triggerOnce duration={200}>
+        <Fade direction="down" cascade triggerOnce duration={100}>
           <div
             className={`flex flex-col gap-4 pt-8 pb-8 overflow-auto font-normal bg-white border-b h-fit border-b-black border-opacity-40 ${poppins.className}`}
           >

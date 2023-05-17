@@ -1,11 +1,12 @@
-import React from "react";
-import Nav from "./navbar";
-import { Roboto } from "next/font/google";
+import React from 'react';
+import Nav from './navbar';
+import { Roboto } from 'next/font/google';
+import Footer from './Footer';
 
 const roboto = Roboto({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap'
 });
 
 type LayoutProps = {
@@ -14,10 +15,13 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className={`grid grid-cols-1 ${roboto.className}`}>
-      <Nav />
-      <main className="flex flex-col items-center h-screen">{children}</main>
-    </div>
+    <>
+      <div className={`grid grid-cols-1 ${roboto.className}`}>
+        <main className="z-10 flex flex-col items-center h-full">
+          {children}
+        </main>
+      </div>
+    </>
   );
 };
 

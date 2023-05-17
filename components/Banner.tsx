@@ -18,7 +18,7 @@ const Banner = ({ visible }: Props) => {
     <div
       className={`flex flex-col items-center justify-center w-full p-2 font-normal text-white bg-black align-center ${roboto.className}`}
     >
-      Use Discount Code: ON3PUR for 20% Off
+      Free shipping available on all orders over $100!
     </div>
   );
 };

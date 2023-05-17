@@ -5,11 +5,13 @@ type Props = {};
 
 const Footer = (props: Props) => {
   const [email, setEmail] = useState('');
+  const [isEmail, setIsEmail] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
     console.log('Email submitted:', email);
+    setIsEmail(true);
     // Reset the form
     setEmail('');
   };
@@ -34,6 +36,12 @@ const Footer = (props: Props) => {
           <BsArrow90DegRight />
         </button>
       </form>
+      {/* if email is true */}
+      {isEmail && (
+        <p className="mb-2 text-sm font-normal text-white text-opacity-40">
+          Thank you for subscribing!
+        </p>
+      )}
       {/* Line divide */}
       <div className="w-full h-px my-4 bg-white bg-opacity-10"></div>
       {/* TM Austin Switch Society */}

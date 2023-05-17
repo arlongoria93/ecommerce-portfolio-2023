@@ -15,7 +15,7 @@ const Footer = (props: Props) => {
     setEmail('');
   };
   return (
-    <div className="flex flex-col items-center justify-center p-4 mt-4 bg-black max-h-xl">
+    <div className="flex flex-col items-center justify-center p-4 mt-4 bg-black max-h-xl h-[280px]">
       <h1 className="mb-4 text-lg font-medium text-white ">
         Subscribe to our emails
       </h1>
@@ -49,7 +49,7 @@ const Footer = (props: Props) => {
       {/* TM Austin Switch Society */}
       <div className="flex flex-col items-center justify-center">
         <p className="mb-2 text-sm font-normal text-white text-opacity-40">
-          © 2023, Austin Switch Society | All rights reserved
+          2023, Austin Switch Society | All rights reserved
         </p>
       </div>
     </div>

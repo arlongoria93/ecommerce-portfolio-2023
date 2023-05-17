@@ -49,7 +49,7 @@ const Footer = (props: Props) => {
       {/* TM Austin Switch Society */}
       <div className="flex flex-col items-center justify-center">
         <p className="mb-2 text-sm font-normal text-white text-opacity-40">
-          TM Austin Switch Society 2021 © All Rights Reserved
+          © 2023, Austin Switch Society | All rights reserved
         </p>
       </div>
     </div>

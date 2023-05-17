@@ -24,9 +24,9 @@ const Navbar = () => {
           <div className="flex flex-row items-center justify-around gap-8 align-center">
             <Link
               href="/"
-              className="text-xl font-normal text-black md:text-2xl "
+              className="text-xl font-normal tracking-wide text-black md:text-2xl "
             >
-              AustinSwitchSociety
+              Austin Switch Society
             </Link>
             <Link
               href="/keyboards"

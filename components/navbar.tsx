@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`bg-white shadow-lg font-black font-display p-4 ${poppins.className}  z-50 h-[59px] md:h-[69px] flex justify-center items-center   w-full sticky top-0`}
+        className={`bg-white  font-black font-display p-4 ${poppins.className}  z-50 h-[74px] flex justify-center items-center   w-full sticky top-0`}
       >
         <div className="flex flex-row items-center justify-between w-full align-center md:w-3/4">
           <div className="flex flex-row items-center justify-around gap-8 align-center">

@@ -21,7 +21,7 @@ const Latest = () => {
   if (error) return <div>Error...</div>;
 
   return (
-    <div className="z-20 flex flex-col items-center w-full p-4 h-1/3 sm:h-3/4">
+    <div className="flex flex-col items-center w-full p-4 h-[600px] sm:h-screen">
       <FullWidthImageContainer />
     </div>
   );

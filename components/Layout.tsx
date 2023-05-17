@@ -1,7 +1,6 @@
 import React from 'react';
-import Nav from './navbar';
 import { Roboto } from 'next/font/google';
-import Footer from './Footer';
+import Latest from './Latest';
 
 const roboto = Roboto({
   weight: '400',

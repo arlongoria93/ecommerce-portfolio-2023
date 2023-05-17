@@ -22,7 +22,7 @@ const poppins = Poppins({
 const Product = ({ product }: Props) => {
   return (
     <div
-      className={`${poppins.className} flex flex-col items-center justify-center w-full gap-3 align-center h-[300px] `}
+      className={`${poppins.className} text-black transition duration-300 group flex flex-col items-center justify-center w-full gap-3 align-center h-[300px] `}
     >
       <Link href={`/products/${product.id}`}>
         <Image
@@ -32,7 +32,10 @@ const Product = ({ product }: Props) => {
           alt={product.image}
         />
       </Link>
-      <h1 className="hover:underline">{product.name}</h1>
+      <a href="#" className="text-black">
+        {product.name}
+        <span className="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-black"></span>
+      </a>
       <p className="font-light">${product.price} USD</p>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Poppins } from 'next/font/google';
+import { useRouter } from 'next/router';
 
 const poppins = Poppins({
   weight: ['400', '700', '900'],
@@ -8,6 +9,7 @@ const poppins = Poppins({
 });
 
 const FullWidthImageContainer = () => {
+  const router = useRouter();
   return (
     <div className={`relative w-full h-full ${poppins.className}`}>
       <img
@@ -22,7 +24,14 @@ const FullWidthImageContainer = () => {
           Upgrade Your Typing Experience
         </h1>
         <p className="text-lg">Discover High-Quality Mechanical Keyboards</p>
-        <button className="p-3 pl-6 pr-6 border-2">Shop Now</button>
+        <button
+          className="p-3 pl-6 pr-6 border-2"
+          onClick={() => {
+            router.push('/keyboards');
+          }}
+        >
+          Shop Now
+        </button>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BsArrow90DegRight } from 'react-icons/bs';
+import { BsArrow90DegRight, BsCheckCircleFill } from 'react-icons/bs';
 
 type Props = {};
 
@@ -7,16 +7,15 @@ const Footer = (props: Props) => {
   const [email, setEmail] = useState('');
   const [isEmail, setIsEmail] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log('Email submitted:', email);
     setIsEmail(true);
     // Reset the form
     setEmail('');
   };
   return (
-    <div className="h-[210px] bg-black flex flex-col items-center justify-center mt-4">
+    <div className="flex flex-col items-center justify-center p-4 mt-4 bg-black max-h-xl">
       <h1 className="mb-4 text-lg font-medium text-white ">
         Subscribe to our emails
       </h1>
@@ -38,9 +37,12 @@ const Footer = (props: Props) => {
       </form>
       {/* if email is true */}
       {isEmail && (
-        <p className="mb-2 text-sm font-normal text-white text-opacity-40">
-          Thank you for subscribing!
-        </p>
+        <div className="flex flex-row items-center gap-2 align-center">
+          <BsCheckCircleFill className="bg-black text-green fill-green-600" />
+          <p className="mt-1.5 mb-2 text-sm font-normal text-white text-opacity-80">
+            Thank you for subscribing!
+          </p>
+        </div>
       )}
       {/* Line divide */}
       <div className="w-full h-px my-4 bg-white bg-opacity-10"></div>

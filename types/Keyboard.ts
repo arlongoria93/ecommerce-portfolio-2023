@@ -5,6 +5,7 @@ export type Keyboard = {
   description: string;
   image: string;
   stripePrice: string;
+  brand: string;
 };
 
 export type KeyboardArray = Keyboard[];

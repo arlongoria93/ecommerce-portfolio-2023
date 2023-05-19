@@ -4,7 +4,7 @@ import Link from 'next/link';
 import CartIcon from '@/components/CartIcon';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { BsXLg } from 'react-icons/bs';
-import { Roboto, Poppins } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import { Fade } from 'react-awesome-reveal';
 
 const poppins = Poppins({

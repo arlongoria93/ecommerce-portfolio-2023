@@ -62,7 +62,7 @@ const Product = () => {
 
   return (
     <div
-      className={`z-0 flex flex-col justify-start min-h-screen  h-full gap-4 p-4 ${poppins.className} transition duration-300 group`}
+      className={`z-0 flex flex-col justify-start min-h-screen  h-full gap-8 p-4 ${poppins.className} transition duration-300 group`}
     >
       <div className="border-2 border-black ">
         {image ? (
@@ -73,26 +73,17 @@ const Product = () => {
       <h1 className="text-4xl">{name}</h1>
       <p className="text-lg text-gray-800">{description}</p>
       <p className="text-2xl font-thin">${price}</p>
-      <div className="flex flex-col items-start self-start w-1/3">
-        <label htmlFor="quantity" className="mb-2 text-lg font-bold">
-          Quantity:
-        </label>
-        <div className="flex items-center">
-          <button
-            onClick={decreaseQuantity}
-            className="px-2 py-1 border border-gray-400 rounded-md"
-          >
+      <div className="flex flex-col items-start justify-center w-1/3">
+        <div className="flex items-center justify-between py-2 px-4  border border-black w-[140px]">
+          <button onClick={decreaseQuantity} className="px-2 py-1 ">
             -
           </button>
-          <p className="px-4">{quantity}</p>
-          <button
-            onClick={increaseQuantity}
-            className="px-2 py-1 border border-gray-400 rounded-md"
-          >
+          <p className="">{quantity}</p>
+          <button onClick={increaseQuantity} className="px-2 py-1 ">
             +
           </button>
         </div>
-      </div>{' '}
+      </div>
       <button
         onClick={handleAddToCart}
         className="w-3/4 px-4 py-4 font-thin text-black transition-all ease-in-out border border-black  hover:border-[2px]"

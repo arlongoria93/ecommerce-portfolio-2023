@@ -46,12 +46,17 @@ const Index = () => {
   };
 
   return (
-    <main className="flex flex-col items-center justify-between w-full h-screen gap-8">
-      <div className="flex flex-row items-center justify-between w-full border-2 border-green">
-        <h1 className="text-2xl">Your Cart</h1>
+    <main className="flex flex-col items-center w-full h-screen gap-8 p-8 mt-8 sm:p-4 sm:w-3/4">
+      <div className="flex flex-row items-center justify-between w-full ">
+        <h1 className="text-2xl">Your Cart</h1>{' '}
         <Link href="/" className="underline">
+          {' '}
           Continue Shopping
         </Link>
+      </div>{' '}
+      <div className="flex flex-row items-center justify-between w-full pb-4 border-b border-green ">
+        <p className="text-xs text-gray-500">PRODUCT</p>
+        <p className="text-xs text-gray-500">TOTAL</p>
       </div>
       <div className="grid w-full grid-cols-1 gap-4">
         {keyboards.map((keyboard) => {
@@ -65,11 +70,6 @@ const Index = () => {
         })}
       </div>
       <div className="flex justify-center gap-4">
-        <Link href="/">
-          <button className="px-6 py-2 mt-4 text-black transition-colors border rounded bg-rose-500 hover:bg-rose-600 border-rose-500 hover:border-rose-600 focus:ring-4 focus:ring-opacity-50 focus:ring-rose-500 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-rose-500 max-w-max">
-            Continue Shopping{' '}
-          </button>
-        </Link>
         <button
           onClick={redirectToCheckout}
           disabled={redirecting}

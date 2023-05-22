@@ -46,8 +46,14 @@ const Index = () => {
   };
 
   return (
-    <main className="flex flex-col items-center justify-center w-full h-screen gap-8">
-      <div className="grid grid-cols-1 gap-4">
+    <main className="flex flex-col items-center justify-between w-full h-screen gap-8">
+      <div className="flex flex-row items-center justify-between w-full border-2 border-green">
+        <h1 className="text-2xl">Your Cart</h1>
+        <Link href="/" className="underline">
+          Continue Shopping
+        </Link>
+      </div>
+      <div className="grid w-full grid-cols-1 gap-4">
         {keyboards.map((keyboard) => {
           if (cartItems[keyboard.id] !== 0) {
             return (

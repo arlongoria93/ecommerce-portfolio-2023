@@ -46,8 +46,19 @@ const Index = () => {
   };
 
   return (
-    <main className="flex flex-col items-center justify-center w-full h-screen gap-8">
-      <div className="grid grid-cols-1 gap-4">
+    <main className="flex flex-col items-center w-full h-screen min-h-full gap-8 p-8 mt-8 sm:p-4 sm:w-3/4">
+      <div className="flex flex-row items-center justify-between w-full ">
+        <h1 className="text-2xl">Your Cart</h1>{' '}
+        <Link href="/" className="underline">
+          {' '}
+          Continue Shopping
+        </Link>
+      </div>{' '}
+      <div className="flex flex-row items-center justify-between w-full pb-4 border-b border-green ">
+        <p className="text-xs text-gray-500">PRODUCT</p>
+        <p className="text-xs text-gray-500">TOTAL</p>
+      </div>
+      <div className="grid w-full grid-cols-1 gap-4">
         {keyboards.map((keyboard) => {
           if (cartItems[keyboard.id] !== 0) {
             return (
@@ -58,16 +69,11 @@ const Index = () => {
           }
         })}
       </div>
-      <div className="flex justify-center gap-4">
-        <Link href="/">
-          <button className="px-6 py-2 mt-4 text-black transition-colors border rounded bg-rose-500 hover:bg-rose-600 border-rose-500 hover:border-rose-600 focus:ring-4 focus:ring-opacity-50 focus:ring-rose-500 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-rose-500 max-w-max">
-            Continue Shopping{' '}
-          </button>
-        </Link>
+      <div className="flex self-end gap-4 ">
         <button
           onClick={redirectToCheckout}
           disabled={redirecting}
-          className="px-6 py-2 mt-4 text-black transition-colors border rounded bg-rose-500 hover:bg-rose-600 border-rose-500 hover:border-rose-600 focus:ring-4 focus:ring-opacity-50 focus:ring-rose-500 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-rose-500 max-w-max"
+          className="px-6 py-2 mt-4 text-black border border-black max-w-max"
         >
           {redirecting ? 'Redirecting...' : 'Go to Checkout'}
         </button>

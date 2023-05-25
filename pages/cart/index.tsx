@@ -69,7 +69,7 @@ const Index = () => {
           }
         })}
       </div>
-      <div className="flex self-end gap-4 border ">
+      <div className="flex self-end gap-4 ">
         <button
           onClick={redirectToCheckout}
           disabled={redirecting}

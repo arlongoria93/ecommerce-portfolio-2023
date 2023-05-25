@@ -32,7 +32,7 @@ export const CartItem = ({ product, count }: Props) => {
 
   return (
     <div className="flex items-center justify-between w-full pt-8 pb-8 ">
-      <div className="flex flex-row items-center">
+      <div className="flex flex-row items-center w-[270px]">
         <div className="w-32">
           <Image
             src={product.image}
@@ -44,7 +44,7 @@ export const CartItem = ({ product, count }: Props) => {
         <div className="flex flex-col gap-4 ml-4">
           <h2 className="text-lg font-normal">{product.name}</h2>
           <p className="text-gray-500">${product.price}</p>
-          <div className="flex items-center justify-between py-2 px-4  border border-black w-[140px]">
+          <div className="flex items-center justify-between py-2 px-4  border border-black w-[140px] sm:hidden">
             <button onClick={decreaseQuantity}>-</button>
             <p className="">{quantity}</p>
             <button onClick={increaseQuantity}>+</button>
@@ -65,7 +65,7 @@ export const CartItem = ({ product, count }: Props) => {
       </div>
       <div>
         {/* display price of product x amount of qty */}
-        <p className="text-lg font-normal">
+        <p className="text-lg font-normal w-[80px]">
           ${(product.price * quantity).toFixed(2)}
         </p>
       </div>

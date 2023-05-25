@@ -15,7 +15,7 @@ const Footer = (props: Props) => {
     setEmail('');
   };
   return (
-    <div className="flex flex-col items-center justify-center p-4 mt-4 bg-black max-h-xl h-[280px]">
+    <div className="flex flex-col items-center justify-center p-4 mt-4 bg-black max-h-xl h-[280px] w-full">
       <h1 className="mb-4 text-lg font-medium text-white ">
         Subscribe to our emails
       </h1>

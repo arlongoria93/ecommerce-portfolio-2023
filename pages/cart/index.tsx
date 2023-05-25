@@ -46,7 +46,7 @@ const Index = () => {
   };
 
   return (
-    <main className="flex flex-col items-center w-full h-screen min-h-screen gap-8 p-8 mt-8 sm:p-4 sm:w-3/4">
+    <main className="flex flex-col items-center w-full h-screen min-h-full gap-8 p-8 mt-8 sm:p-4 sm:w-3/4">
       <div className="flex flex-row items-center justify-between w-full ">
         <h1 className="text-2xl">Your Cart</h1>{' '}
         <Link href="/" className="underline">

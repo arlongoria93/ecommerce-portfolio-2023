@@ -12,22 +12,22 @@ type Props = {
     price: number;
     brand: string;
   };
-  count: number;
 };
-export const CartItem = ({ product, count }: Props) => {
-  const [quantity, setQuantity] = useState(1);
-  const { addProductToCart, removeProductFromCart } = React.useContext(
-    ShopContext
-  ) as ContextType;
+export const CartItem = ({ product }: Props) => {
+  const { addProductToCart, removeProductFromCart, getItemCountCart } =
+    React.useContext(ShopContext) as ContextType;
+
+  const [quantity, setQuantity] = useState(getItemCountCart(product.id));
 
   const decreaseQuantity = () => {
     if (quantity > 1) {
-      setQuantity(quantity - 1);
+      setQuantity((prevState) => prevState - 1);
+      removeProductFromCart(product.id);
     }
   };
-
   const increaseQuantity = () => {
-    setQuantity(quantity + 1);
+    setQuantity((prevState) => prevState + 1);
+    addProductToCart(product.id, 1);
   };
 
   return (
@@ -66,7 +66,7 @@ export const CartItem = ({ product, count }: Props) => {
       <div>
         {/* display price of product x amount of qty */}
         <p className="text-lg font-normal w-[80px]">
-          ${(product.price * quantity).toFixed(2)}
+          ${(product.price * getItemCountCart(product.id)).toFixed(2)}
         </p>
       </div>
     </div>

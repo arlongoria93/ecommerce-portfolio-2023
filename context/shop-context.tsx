@@ -1,9 +1,11 @@
-import React, { createContext, useState, useEffect } from "react";
-import { Keyboard } from "@/types/Keyboard";
+import React, { createContext, useState, useEffect } from 'react';
+import { Keyboard } from '@/types/Keyboard';
+import { get } from 'http';
 
 export type ContextType = {
   cartItems: { [key: number]: number };
   getDefaultCart: (keyboards: Keyboard[]) => { [key: number]: number };
+  getItemCountCart: (productId: number) => number;
   addProductToCart: (productId: number, quantity?: number) => void;
   removeProductFromCart: (productId: number) => void;
   getTotalItemCountInCart: () => number;
@@ -59,15 +61,19 @@ export const ShopContextProvider = ({ children }: Props) => {
   const addProductToCart = (productId: number, quantity = 1) => {
     setCartItems((prevState) => ({
       ...prevState,
-      [productId]: (prevState[productId] ?? 0) + quantity,
+      [productId]: (prevState[productId] ?? 0) + quantity
     }));
   };
 
   const removeProductFromCart = (productId: number) => {
     setCartItems((prevState) => ({
       ...prevState,
-      [productId]: prevState[productId] - 1,
+      [productId]: prevState[productId] - 1
     }));
+  };
+
+  const getItemCountCart = (productId: number) => {
+    return cartItems[productId] ?? 0;
   };
 
   const getTotalItemCountInCart = () => {
@@ -94,6 +100,7 @@ export const ShopContextProvider = ({ children }: Props) => {
     clearCart,
     getDefaultCart,
     setCartItems,
+    getItemCountCart
   };
 
   if (PRODUCTS.length === 0) {

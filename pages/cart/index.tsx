@@ -63,7 +63,7 @@ const Index = () => {
           if (cartItems[keyboard.id] !== 0) {
             return (
               <div key={keyboard.id}>
-                <CartItem product={keyboard} count={cartItems[keyboard.id]} />
+                <CartItem product={keyboard} />
               </div>
             );
           }

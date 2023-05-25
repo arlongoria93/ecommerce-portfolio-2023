@@ -44,7 +44,7 @@ export const CartItem = ({ product, count }: Props) => {
         <div className="flex flex-col gap-4 ml-4">
           <h2 className="text-lg font-normal">{product.name}</h2>
           <p className="text-gray-500">${product.price}</p>
-          <div className="flex items-center justify-between py-2 px-4  border border-black w-[140px] sm:hidden">
+          <div className="flex items-center justify-between py-2 px-4  border border-black w-[140px] md:hidden">
             <button onClick={decreaseQuantity}>-</button>
             <p className="">{quantity}</p>
             <button onClick={increaseQuantity}>+</button>
@@ -52,7 +52,7 @@ export const CartItem = ({ product, count }: Props) => {
         </div>
       </div>
       {/* hidden qty */}
-      <div className="flex-col items-start justify-center hidden w-1/3 sm:flex">
+      <div className="flex-col items-start justify-center hidden w-1/3 md:flex">
         <div className="flex items-center justify-between py-2 px-4  border border-black w-[140px]">
           <button onClick={decreaseQuantity} className="px-2 py-1 ">
             -

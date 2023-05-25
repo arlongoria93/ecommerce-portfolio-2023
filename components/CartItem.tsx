@@ -15,10 +15,9 @@ type Props = {
   count: number;
 };
 export const CartItem = ({ product, count }: Props) => {
-  const [quantity, setQuantity] = useState(1);
-  const { addProductToCart, removeProductFromCart } = React.useContext(
-    ShopContext
-  ) as ContextType;
+  const { addProductToCart, removeProductFromCart, getTotalItemCountInCart } =
+    React.useContext(ShopContext) as ContextType;
+  const [quantity, setQuantity] = useState(count);
 
   const decreaseQuantity = () => {
     if (quantity > 1) {

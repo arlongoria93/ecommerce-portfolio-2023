@@ -13,9 +13,8 @@ export default function App({ Component, pageProps }: AppProps) {
       <Banner visible={true} />
       <Navbar />
       <Layout>
-        <Component {...pageProps} />
+        <Component {...pageProps} /> <Footer />
       </Layout>
-      <Footer />
     </ShopContextProvider>
   );
 }

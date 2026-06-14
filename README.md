@@ -1,55 +1,76 @@
+🛒 Austin Switch Society — Ecommerce Store
 
+A fully functional ecommerce web application built with Next.js, TypeScript, and Stripe, focused on delivering a smooth and realistic shopping experience for mechanical keyboard products.
 
-# Austin Switch Society Ecommerce Site
+This project simulates a production-level online store, including cart management, product browsing, and secure checkout integration.
 
+🚀 Live Site
 
+👉 https://ecommerce-portfolio-2023.vercel.app/
 
-Welcome to Austin Switch Society, an ecommerce site built with NextJS, Tailwind, Typescript, with Stripe implementation. This site is designed to provide you with a seamless shopping experience for all your Mechanical Keyboard needs.
+📸 Preview
 
-## Table of Contents
+✨ Key Features
+Full ecommerce flow (browse → cart → checkout)
+Add / remove items from shopping cart
+Persistent cart state using React context
+Secure Stripe checkout integration
+Dynamic product pages for individual keyboards
+Responsive mobile-first UI
+Clean component-based architecture
+🧠 Tech Stack
+Next.js – React framework for routing and SSR
+React – UI library
+TypeScript – Type safety and scalability
+Stripe – Payment processing
+CSS Modules / Global CSS – Styling approach used in project
+🏗️ Architecture Overview
 
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
+This project is structured to simulate a real ecommerce application:
 
-## Features
+Context API handles global cart state
+Reusable components for product cards, navbar, cart items
+Dynamic routing for product detail pages
+Utility functions handle cart logic and Stripe requests
+Data layer uses structured product JSON for scalability
+💡 What I Learned
 
-- View and purchase a variety of Mechanical Keyboards
-- Easily navigate through the website using the menu
-- Add items to your cart and checkout securely with Stripe integration
+This project strengthened my understanding of:
 
-## Installation
+Managing global state using React Context
+Building full ecommerce flows from product selection to checkout
+Integrating third-party APIs (Stripe) in a Next.js environment
+Structuring scalable TypeScript React applications
+Handling dynamic routing and reusable UI components
+⚠️ Challenges & Solutions
+🔹 Cart State Management
 
-To run this ecommerce site locally, please follow these steps:
+Managing cart updates across multiple components required careful state design using Context API to avoid prop drilling.
 
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Create a `.env.local` file in the root directory and add the following environment variables:
+🔹 Stripe Integration
 
-```bash
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY= YOUR_NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-STRIPE_SECRET_KEY=YOUR_STRIPE_SECRET_KEY
-STRIPE_WEBHOOK_SECRET=YOUR_STRIPE_WEBHOOK_SECRET
-```
+Implementing secure checkout required separating frontend cart logic from backend Stripe session creation.
 
-4. Start the development server: `npm run dev`
-5. Open `http://localhost:3000` in your browser to view the website.
+🔹 Data Flow Consistency
 
-## Usage
+Ensuring product data stayed consistent across pages required a structured and reusable data layer.
 
-Once the website is up and running, you can:
+🚀 Future Improvements
 
-- View the different keyboard options available on the homepage
-- Add items to your cart by clicking the "Add to Cart" button
-- View your cart by clicking the cart icon in the top right corner
-- Checkout securely with Stripe integration by entering your shipping and payment information
+If I continue this project, I would:
 
-## Technologies Used
+Add user authentication (login / accounts)
+Persist cart data in local storage or database
+Improve accessibility (ARIA labels, keyboard navigation)
+Add product filtering and search functionality
+Implement order history and checkout confirmation pages
+Optimize performance (image loading + code splitting)
 
-- NextJS
-- Tailwind
-- Typescript
-- Stripe
+👤 Author
+Angelo Longoria
+
+Portfolio: https://www.angelolongoria.dev/
+Frontend Mentor: https://www.frontendmentor.io/profile/arlongoria93
+
+🔥 Final Note
+This project demonstrates a functional ecommerce application built with modern frontend tools. It showcases full user flow implementation, from product browsing to secure checkout, and reflects practical experience with React state management and Stripe integration.
